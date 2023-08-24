@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>InnerHTML, InnerText e TextContent - Atividade Ronan 24/08</title>
+
+</head>
+
+<body>
+
+  <div id="exemplo">
+    <p> Aprendendo <strong>programação</strong> Web </p>
+  </div>
+  
+  <p id="resultado">Resultado:</p><!--onde os resultados serão exibidos-->
+  
+  <!--Parágrafos onde os resultados serão exibidos-->
+  <p id="innerTextResultado"></p>
+  <p id="innerHTMLResultado"></p>
+  <p id="textContentResultado"></p>
+
+
+  <script> //Inicia a parte JS
+
+    //Pega elemento com id "exemplo" e armazena na variável
+    const exemploElemento = document.getElementById('exemplo');
+
+    //Função para mostrar o resultado de cada propriedade (os comandos)
+    function showResultado(comando, descricao) {
+
+      //Seleciona o elemento para adicionar o resultado, usando o getElementById, pois tem Ids exclusivos.
+      // e esta pertencendo ao obejto document, se fosse selecionar por outros atributos ai poderia 
+      // ser o querySelector
+      const resultadoParagrafo = document.getElementById(`${comando}Resultado`);
+      
+      //Define o texto do parágrafo com a descrição do comando e seu valor correspondente do elemento.
+      resultadoParagrafo.textContent = `${descricao}: "${exemploElemento[comando]}"`;
+    }
+    
+    //Chama a função para exibir os resultados
+
+    //Define ou retorna o texto visível de um elemento, excluindo as tags HTML
+    showResultado('innerText', 'innerText');
+
+    //Essa propriedade define ou retorna o conteúdo HTML
+    // interno de um elemento, incluindo todas as tags e elementos filhos
+    showResultado('innerHTML', 'innerHTML');
+
+   // Retorna o conteúdo de texto completo de um elemento,
+   // incluindo todos os elementos filhos, mas sem as tags HTML
+    showResultado('textContent', 'textContent');
+  
+  </script>
+
+</body>
+
+</html>

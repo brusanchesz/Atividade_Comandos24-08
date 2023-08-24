@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+
+  <title>InnerHTML, InnerText e TextContent- Atividade Ronan 24/08</title>
+
+</head>
+
+<body>
+
+  <div id="exemplo"> <!--Criando elemento com id exemplo-->
+    <p> Aprendendo <strong>programação</strong> Web </p> <!--paragrafo com strong, tipo um negrito-->
+  </div>
+
+  <p id="resultado">Resultado:</p> <!--paragrafo para o resultado-->
+
+  <div id="resultados"></div><!--Container para mostrar os resultados-->
+
+
+  <script> //parte de JS
+
+    //Obtém o elemento com id "exemplo" e armazena na variavel
+    const exemploElemento = document.getElementById('exemplo');
+
+    //Função p/ mostrar os resultados no container
+    function showResult(comando) {
+
+      //Seleciona o elemento com id "resultados" para adicionar os resultados
+      const resultadoContainer = document.getElementById('resultados');
+      
+      //Cria um parágrafo para exibir o resultado
+      const resultadoParagrafo = document.createElement('p');
+      
+      //Define o texto do parágrafo com a propriedade (que é o comando) e seu valor (que é o resultado)
+      resultadoParagrafo.textContent = `${comando}: "${exemploElemento[comando]}"`;
+      
+      //Adiciona o parágrafo com o resultado ao container
+      resultadoContainer.appendChild(resultadoParagrafo);
+    }
+
+
+    //Chama a função showResult para cada propriedade
+    showResult('innerText');
+    showResult('innerHTML');
+    showResult('textContent');
+
+
+  </script>
+</body>
+</html>
